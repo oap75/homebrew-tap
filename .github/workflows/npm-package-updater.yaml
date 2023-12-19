@@ -63,4 +63,5 @@ jobs:
 
   suite:
       name: suite
+      needs: update-package
       uses: ./.github/workflows/ci.yml
