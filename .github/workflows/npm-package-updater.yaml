@@ -60,3 +60,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git push origin
+
+  suite:
+      name: suite
+      uses: ./.github/workflows/ci.yml
