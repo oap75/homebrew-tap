@@ -33,7 +33,8 @@ jobs:
           PACKAGE_NAME="@sunodo/cli"
           PACKAGE_VERSION=$(npm show $PACKAGE_NAME version)
           PACKAGE_URL=$(npm show $PACKAGE_NAME dist.tarball)
-          PACKAGE_SHA256=$(npm show $PACKAGE_NAME dist.shasum | awk '{print $1}')
+          npm pack @sunodo/cli@$PACKAGE_VERSION
+          PACKAGE_SHA256=$(sha256sum sunodo-cli-$PACKAGE_VERSION.tgz | awk '{print $1}')
 
           if [ -z "$PACKAGE_VERSION" ] || [ -z "$PACKAGE_URL" ] || [ -z "$PACKAGE_SHA256" ]; then
             echo "Failed to retrieve package information. Exiting..."
